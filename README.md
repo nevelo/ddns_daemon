@@ -6,6 +6,6 @@ The refresher script defaults to running every 10 minutes and looks
 for your unique capability URL under /etc/ddns_sync.conf.
 
 Syntax:
-	sudo ./ddns_installer.sh
+    sudo ./ddns_installer.sh
 
 
