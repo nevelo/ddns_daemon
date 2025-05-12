@@ -2,8 +2,16 @@
 
 # Fetches a webcall url to maintain public access using dynamic DNS.
 
-# Configuration
-target_url="https://example.com/path/to/your/webcall/url"
+# Load configuration file
+if [[ -f /etc/ddns_sync.conf ]]; then
+	source /etc/ddns_sync.conf
+else
+	echo "Configuration file not found at /etc/ddns_sync.conf"
+	exit 1
+fi
+
+# Configure paths
+target_url="$TARGET_URL"
 log_file="/var/log/ddns_sync/ddns_sync.log"
 
 # Checking log file path
