@@ -3,7 +3,7 @@
 # Fetches a webcall url to maintain public access using dynamic DNS.
 
 # Configuration
-target_url="https://nevel.ca/cpanelwebcall/example"
+target_url="https://example.com/path/to/your/webcall/url"
 log_file="/var/log/ddns_sync/ddns_sync.log"
 
 # Checking log file path
