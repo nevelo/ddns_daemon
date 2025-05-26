@@ -2,6 +2,12 @@
 
 # Fetches a webcall url to maintain public access using dynamic DNS.
 
+# Abort if running as root
+if [[ $EUID -eq 0  ]]; then
+	echo "ERROR: Run this script as ddns_sync, not root." >&2
+	exit 1
+fi
+
 # Load configuration file
 if [[ -f /etc/ddns_sync.conf ]]; then
 	source /etc/ddns_sync.conf
@@ -16,6 +22,7 @@ log_file="/var/log/ddns_sync/ddns_sync.log"
 
 # Checking log file path
 mkdir -p "$(dirname "$log_file")"
+touch "$log_file"
 
 # Sending current public IP address to target URL; current public IP
 # address is the expected return value.
